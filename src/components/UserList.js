@@ -11,14 +11,16 @@ function UserList({ users }) {
         : users.map((item, ind) => {
             return (
               <ul>
-                <li
-                  href={`/users/${item.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate(`/users/${item.id}`);
-                  }}
-                >
-                  <a>{item.name}</a>
+                <li>
+                  <a
+                    href={`/users/${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(`/users/${item.id}`);
+                    }}
+                  >
+                    {item.name}
+                  </a>
                 </li>
               </ul>
             );
