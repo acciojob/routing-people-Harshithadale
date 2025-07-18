@@ -6,7 +6,9 @@ function UserList({ users }) {
   return (
     <div>
       <h1>User List</h1>
-      { users.map((item, ind) => {
+      {users.length === 0
+        ? "loading..."
+        : users.map((item, ind) => {
             return (
               <ul>
                 <a
