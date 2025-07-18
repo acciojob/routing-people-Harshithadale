@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function UserDetails() {
+const UserDetails = () => {
   const { id } = useParams();
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // loading flag
 
   useEffect(() => {
-    setLoading(true);
     fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setUser(data);
         setLoading(false);
       })
-      .catch((err) => {
-        console.error("Error fetching user:", err);
+      .catch((error) => {
+        console.log(error);
         setLoading(false);
       });
   }, [id]);
@@ -25,13 +24,13 @@ function UserDetails() {
   return (
     <div>
       <h1>User Details</h1>
-      <p><strong>Name:</strong> {user.name}</p>
-      <p><strong>Username:</strong> {user.username}</p>
-      <p><strong>Email:</strong> {user.email}</p>
-      <p><strong>Phone:</strong> {user.phone}</p>
-      <p><strong>Website:</strong> {user.website}</p>
+      <p><b>Name:</b> {user.name}</p>
+      <p><b>Username:</b> {user.username}</p>
+      <p><b>Email:</b> {user.email}</p>
+      <p><b>Phone:</b> {user.phone}</p>
+      <p><b>Website:</b> {user.website}</p>
     </div>
   );
-}
+};
 
 export default UserDetails;
