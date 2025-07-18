@@ -11,15 +11,15 @@ function UserList({ users }) {
         : users.map((item, ind) => {
             return (
               <ul>
-                <a
+                <li
                   href={`/users/${item.id}`}
                   onClick={(e) => {
                     e.preventDefault();
                     navigate(`/users/${item.id}`);
                   }}
                 >
-                  <li>{item.name}</li>
-                </a>
+                  <a>{item.name}</a>
+                </li>
               </ul>
             );
           })}
